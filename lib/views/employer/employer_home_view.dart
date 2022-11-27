@@ -1,23 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:sjobs/theme/light_theme_colors.dart';
+import 'package:sjobs/utils/routes.utils.dart';
+import 'package:sjobs/views/common/chat_messages_view.dart';
+import 'package:sjobs/views/employer/employer_main_view.dart';
+import 'package:sjobs/views/employer/employer_offers_view.dart';
 
 class EmployerHomeView extends HookWidget {
   EmployerHomeView({super.key});
 
   final List<Widget> _destinations = [
-    Container(
-      child: const Text("1"),
-    ),
-    Container(
-      child: const Text("2"),
-    ),
-    Container(
-      child: const Text("3"),
-    ),
-    Container(
-      child: const Text("1"),
-    ),
+    const EmployerMainView(),
+    const EmployerOffersView(),
+    const ChatMessagesView()
   ];
 
   @override
@@ -27,16 +23,36 @@ class EmployerHomeView extends HookWidget {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
-          backgroundColor: LightThemeColors.primary,
+          backgroundColor: Colors.grey.shade50,
+          elevation: 0,
+          leading: const BackButton(
+            color: LightThemeColors.primary,
+          ),
+          actions: [
+            Padding(
+              padding: const EdgeInsets.only(right: 15.0),
+              child: GestureDetector(
+                onTap: (() {
+                  Navigator.of(context).pushNamed(AppRoutes.userProfile);
+                }),
+                child: CircleAvatar(
+                  backgroundColor: LightThemeColors.primary,
+                  foregroundColor: LightThemeColors.onPrimary,
+                  child: Text(
+                    "A",
+                    style: GoogleFonts.amiri(),
+                  ),
+                ),
+              ),
+            ),
+          ],
         ),
-        body: SingleChildScrollView(
-          child: _destinations[curentIndex.value],
-        ),
+        body: _destinations[curentIndex.value],
         bottomNavigationBar: BottomNavigationBar(
           currentIndex: curentIndex.value,
           showUnselectedLabels: false,
           selectedItemColor: LightThemeColors.primary,
-          onTap: ((value) => {curentIndex.value = value}),
+          onTap: ((value) => curentIndex.value = value),
           items: const [
             BottomNavigationBarItem(
               icon: Icon(Icons.house),
@@ -47,7 +63,7 @@ class EmployerHomeView extends HookWidget {
               label: "Offers",
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.chat_bubble_outline),
+              icon: Icon(Icons.message_rounded),
               label: "Chat",
             ),
           ],
