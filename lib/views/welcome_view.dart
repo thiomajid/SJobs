@@ -3,6 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
 import 'package:sjobs/theme/light_theme_colors.dart';
 import 'package:sjobs/utils/lottie_assets_path.utils.dart';
+import 'package:sjobs/utils/routes.utils.dart';
 
 class WelcomePage extends StatelessWidget {
   const WelcomePage({super.key});
@@ -35,7 +36,7 @@ class WelcomePage extends StatelessWidget {
                 padding: const EdgeInsets.fromLTRB(25.0, 50, 25.0, 25.0),
                 child: ElevatedButton(
                   onPressed: () {
-                    Navigator.of(context).pushNamed("/employer");
+                    Navigator.of(context).pushNamed(AppRoutes.employerHome);
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: LightThemeColors.primary,
@@ -51,6 +52,7 @@ class WelcomePage extends StatelessWidget {
                     "Login",
                     style: GoogleFonts.sacramento(
                       color: LightThemeColors.onPrimary,
+                      fontSize: 20,
                     ),
                   ),
                 ),
@@ -80,8 +82,7 @@ class WelcomePage extends StatelessWidget {
                   child: Text(
                     "Sign Up",
                     style: GoogleFonts.sacramento(
-                      color: LightThemeColors.primary,
-                    ),
+                        color: LightThemeColors.primary, fontSize: 20),
                   ),
                 ),
               ),
