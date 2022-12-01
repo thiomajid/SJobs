@@ -12,7 +12,7 @@ class EmployerOffersView extends StatefulWidget {
 }
 
 class _EmployerOffersViewState extends State<EmployerOffersView> {
-  List<JobOffer> offers = [
+  List<JobOffer> offers = List.of([
     JobOffer(
       title: "Baby-sitter",
       description: "Take care of a 6 months baby",
@@ -31,25 +31,35 @@ class _EmployerOffersViewState extends State<EmployerOffersView> {
         const Duration(days: 50),
       ),
     ),
-  ];
+    JobOffer(
+      title: "Baby-sitter",
+      description: "Take care of a 6 months baby",
+      postedOn: DateTime.now().subtract(
+        const Duration(days: 50),
+      ),
+    ),
+    JobOffer(
+        title: "Baby-sitter",
+        description: "Take care of a 6 months baby",
+        postedOn: DateTime.now()),
+    JobOffer(
+      title: "Baby-sitter",
+      description: "Take care of a 6 months baby",
+      postedOn: DateTime.now().subtract(
+        const Duration(days: 50),
+      ),
+    ),
+  ]);
 
   @override
   Widget build(BuildContext context) {
-    List.generate(
-      offers.length,
-      (index) => OpenContainer(
-        closedBuilder: (_, __) => OfferDescriptionView(offer: offers[index]),
-        openBuilder: (_, __) => OfferCard(
-          offer: offers[index],
-        ),
-      ),
-    );
     return ListView.builder(
+      physics: const BouncingScrollPhysics(),
       itemCount: offers.length,
       itemBuilder: ((context, index) {
         return OpenContainer(
           transitionType: ContainerTransitionType.fadeThrough,
-          transitionDuration: const Duration(milliseconds: 500),
+          transitionDuration: const Duration(milliseconds: 750),
           closedBuilder: (_, __) => OfferCard(offer: offers[index]),
           openBuilder: (_, __) => OfferDescriptionView(
             offer: offers[index],

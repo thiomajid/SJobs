@@ -24,7 +24,7 @@ class SjobsApp extends StatelessWidget {
       routes: {
         AppRoutes.home: (_) => const WelcomePage(),
         AppRoutes.userProfile: (_) => const UserProfileView(),
-        AppRoutes.employerHome: (context) => EmployerHomeView(),
+        AppRoutes.employerHome: (_) => EmployerHomeView(),
       },
       theme: SjobsThemeData.lightTheme,
       darkTheme: SjobsThemeData.darkTheme,

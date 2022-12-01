@@ -19,12 +19,14 @@ class EmployerHomeView extends HookWidget {
   @override
   Widget build(BuildContext context) {
     final curentIndex = useState(0);
+    final pageController = usePageController();
 
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.grey.shade50,
           elevation: 0,
+          title: const Text("SJobs"),
           leading: const BackButton(
             color: LightThemeColors.primary,
           ),
@@ -39,7 +41,7 @@ class EmployerHomeView extends HookWidget {
                   backgroundColor: LightThemeColors.primary,
                   foregroundColor: LightThemeColors.onPrimary,
                   child: Text(
-                    "A",
+                    "JD",
                     style: GoogleFonts.amiri(),
                   ),
                 ),
@@ -47,12 +49,23 @@ class EmployerHomeView extends HookWidget {
             ),
           ],
         ),
-        body: _destinations[curentIndex.value],
+        body: PageView(
+          controller: pageController,
+          onPageChanged: ((value) {
+            curentIndex.value = value;
+          }),
+          children: _destinations,
+        ),
         bottomNavigationBar: BottomNavigationBar(
           currentIndex: curentIndex.value,
           showUnselectedLabels: false,
           selectedItemColor: LightThemeColors.primary,
-          onTap: ((value) => curentIndex.value = value),
+          onTap: ((value) {
+            curentIndex.value = value;
+            pageController.animateToPage(value,
+                duration: const Duration(milliseconds: 300),
+                curve: Curves.linear);
+          }),
           items: const [
             BottomNavigationBarItem(
               icon: Icon(Icons.house),

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:sjobs/theme/light_theme_colors.dart';
 
 class UserProfileView extends StatelessWidget {
@@ -13,48 +12,57 @@ class UserProfileView extends StatelessWidget {
           leading: const BackButton(
             color: LightThemeColors.primary,
           ),
-          title: Text(
+          title: const Text(
             "Account",
-            style: GoogleFonts.pacifico(
-              color: LightThemeColors.primary,
-              fontSize: 20,
-              fontStyle: FontStyle.italic,
-            ),
           ),
         ),
-        body: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
+        body: ListView(
           children: [
-            const Center(
-              child: Padding(
-                padding: EdgeInsets.only(top: 28.0),
-                child: CircleAvatar(
-                  radius: 50,
-                  backgroundColor: LightThemeColors.primary,
-                  foregroundColor: LightThemeColors.onPrimary,
-                  child: Text(
-                    "A",
-                    style: TextStyle(fontSize: 30),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                //? Profile picture avatar
+                const Padding(
+                  padding: EdgeInsets.only(top: 28.0),
+                  child: CircleAvatar(
+                    radius: 50,
+                    backgroundColor: LightThemeColors.primary,
+                    foregroundColor: LightThemeColors.onPrimary,
+                    child: Text(
+                      "JD",
+                      style: TextStyle(fontSize: 30),
+                    ),
                   ),
                 ),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(top: 28.0),
-              child: Center(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: const [
-                    Text(
-                      "John Doe",
-                      style: TextStyle(
-                        fontSize: 25,
+                //? Name and edit button
+                Padding(
+                  padding: const EdgeInsets.only(top: 28.0),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      const Text(
+                        "John Doe",
+                        style: TextStyle(
+                          fontSize: 25,
+                        ),
                       ),
-                    ),
-                  ],
+                      ElevatedButton(
+                        onPressed: () {},
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: LightThemeColors.secondary,
+                          shape: const RoundedRectangleBorder(
+                            borderRadius: BorderRadius.all(
+                              Radius.circular(10),
+                            ),
+                          ),
+                        ),
+                        child: const Text("Edit profile"),
+                      )
+                    ],
+                  ),
                 ),
-              ),
-            )
+              ],
+            ),
           ],
         ),
       ),
