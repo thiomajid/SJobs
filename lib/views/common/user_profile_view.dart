@@ -6,6 +6,8 @@ class UserProfileView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var orientation = MediaQuery.of(context).orientation;
+
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
@@ -43,26 +45,43 @@ class UserProfileView extends StatelessWidget {
                       const Text(
                         "John Doe",
                         style: TextStyle(
-                          fontSize: 25,
+                          fontSize: 20,
                         ),
                       ),
-                      ElevatedButton(
+                      ElevatedButton.icon(
+                        label: const Text(
+                          "Edit profile",
+                          style: TextStyle(
+                              fontSize: 14, color: LightThemeColors.primary),
+                        ),
+                        icon: const Icon(
+                          Icons.edit,
+                          color: LightThemeColors.primary,
+                          size: 14,
+                        ),
                         onPressed: () {},
                         style: ElevatedButton.styleFrom(
-                          backgroundColor: LightThemeColors.secondary,
+                          backgroundColor: LightThemeColors.onPrimary,
                           shape: const RoundedRectangleBorder(
                             borderRadius: BorderRadius.all(
                               Radius.circular(10),
                             ),
                           ),
                         ),
-                        child: const Text("Edit profile"),
                       )
                     ],
                   ),
                 ),
               ],
             ),
+            Padding(
+              padding: const EdgeInsets.only(top: 15.0),
+              child: Divider(
+                thickness: 2,
+                endIndent: orientation == Orientation.landscape ? 120 : 80,
+                indent: orientation == Orientation.landscape ? 120 : 80,
+              ),
+            )
           ],
         ),
       ),

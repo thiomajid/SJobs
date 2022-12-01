@@ -29,6 +29,14 @@ The project is structured as follow:
 | +-- student => views reserved only for the students
 ```
 
+## Preview
+
+<div style="display:flex">
+<img src="login.png" alt="login Page" height="500" style="margin:20px"/>
+<img src="job_description.png" alt="login Page" height="500" style="margin:20px"/>
+<img src="chat_view.png" alt="login Page" height="500" style="margin:20px"/>
+</div>
+
 PS: each main view should start with a [Scaffold](https://api.flutter.dev/flutter/material/Scaffold-class.html) wrapped within a [SafeArea](https://api.flutter.dev/flutter/widgets/SafeArea-class.html).
 
 - [riverpod docs](https://riverpod.dev/fr/)

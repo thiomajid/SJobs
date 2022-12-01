@@ -2,7 +2,7 @@ import 'package:animations/animations.dart';
 import 'package:flutter/material.dart';
 import 'package:sjobs/components/common/offer_card.dart';
 import 'package:sjobs/models/entities/job_offer.dart';
-import 'package:sjobs/views/common/offer_description_view.dart';
+import 'package:sjobs/views/employer/employer_offer_description_view.dart';
 
 class EmployerOffersView extends StatefulWidget {
   const EmployerOffersView({super.key});
@@ -58,7 +58,6 @@ class _EmployerOffersViewState extends State<EmployerOffersView> {
       itemCount: offers.length,
       itemBuilder: ((context, index) {
         return OpenContainer(
-          transitionType: ContainerTransitionType.fadeThrough,
           transitionDuration: const Duration(milliseconds: 750),
           closedBuilder: (_, __) => OfferCard(offer: offers[index]),
           openBuilder: (_, __) => OfferDescriptionView(
