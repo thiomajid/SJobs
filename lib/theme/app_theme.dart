@@ -14,10 +14,15 @@ class SjobsThemeData {
     visualDensity: VisualDensity.adaptivePlatformDensity,
     appBarTheme: AppBarTheme(
       backgroundColor: Colors.grey.shade50,
+      titleTextStyle: GoogleFonts.pacifico(
+        fontSize: 20,
+        color: primary,
+        fontStyle: FontStyle.italic,
+      ),
       elevation: 0,
     ),
     textTheme: const TextTheme(
-      button: TextStyle(fontSize: 30),
+      button: TextStyle(fontSize: 20),
     ),
     buttonTheme: const ButtonThemeData(
       shape: RoundedRectangleBorder(
