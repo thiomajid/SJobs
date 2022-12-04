@@ -20,13 +20,21 @@ ChatMessage _$ChatMessageFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ChatMessage {
-  String? get id => throw _privateConstructorUsedError;
-  set id(String? value) => throw _privateConstructorUsedError;
+  int? get id => throw _privateConstructorUsedError;
+  set id(int? value) => throw _privateConstructorUsedError;
   String get message => throw _privateConstructorUsedError;
   set message(String value) => throw _privateConstructorUsedError;
+  @JsonKey(name: "discussion_id")
+  int get discussionId => throw _privateConstructorUsedError;
+  @JsonKey(name: "discussion_id")
+  set discussionId(int value) => throw _privateConstructorUsedError;
+  @JsonKey(name: "sent_on")
   DateTime get sentOn => throw _privateConstructorUsedError;
+  @JsonKey(name: "sent_on")
   set sentOn(DateTime value) => throw _privateConstructorUsedError;
+  @JsonKey(name: "is_sent")
   bool get isSent => throw _privateConstructorUsedError;
+  @JsonKey(name: "is_sent")
   set isSent(bool value) => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -41,7 +49,12 @@ abstract class $ChatMessageCopyWith<$Res> {
           ChatMessage value, $Res Function(ChatMessage) then) =
       _$ChatMessageCopyWithImpl<$Res, ChatMessage>;
   @useResult
-  $Res call({String? id, String message, DateTime sentOn, bool isSent});
+  $Res call(
+      {int? id,
+      String message,
+      @JsonKey(name: "discussion_id") int discussionId,
+      @JsonKey(name: "sent_on") DateTime sentOn,
+      @JsonKey(name: "is_sent") bool isSent});
 }
 
 /// @nodoc
@@ -59,6 +72,7 @@ class _$ChatMessageCopyWithImpl<$Res, $Val extends ChatMessage>
   $Res call({
     Object? id = freezed,
     Object? message = null,
+    Object? discussionId = null,
     Object? sentOn = null,
     Object? isSent = null,
   }) {
@@ -66,11 +80,15 @@ class _$ChatMessageCopyWithImpl<$Res, $Val extends ChatMessage>
       id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as int?,
       message: null == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
               as String,
+      discussionId: null == discussionId
+          ? _value.discussionId
+          : discussionId // ignore: cast_nullable_to_non_nullable
+              as int,
       sentOn: null == sentOn
           ? _value.sentOn
           : sentOn // ignore: cast_nullable_to_non_nullable
@@ -91,7 +109,12 @@ abstract class _$$_ChatMessageCopyWith<$Res>
       __$$_ChatMessageCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String? id, String message, DateTime sentOn, bool isSent});
+  $Res call(
+      {int? id,
+      String message,
+      @JsonKey(name: "discussion_id") int discussionId,
+      @JsonKey(name: "sent_on") DateTime sentOn,
+      @JsonKey(name: "is_sent") bool isSent});
 }
 
 /// @nodoc
@@ -107,6 +130,7 @@ class __$$_ChatMessageCopyWithImpl<$Res>
   $Res call({
     Object? id = freezed,
     Object? message = null,
+    Object? discussionId = null,
     Object? sentOn = null,
     Object? isSent = null,
   }) {
@@ -114,11 +138,15 @@ class __$$_ChatMessageCopyWithImpl<$Res>
       id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as int?,
       message: null == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
               as String,
+      discussionId: null == discussionId
+          ? _value.discussionId
+          : discussionId // ignore: cast_nullable_to_non_nullable
+              as int,
       sentOn: null == sentOn
           ? _value.sentOn
           : sentOn // ignore: cast_nullable_to_non_nullable
@@ -137,25 +165,30 @@ class _$_ChatMessage implements _ChatMessage {
   _$_ChatMessage(
       {this.id,
       required this.message,
-      required this.sentOn,
-      this.isSent = true});
+      @JsonKey(name: "discussion_id") required this.discussionId,
+      @JsonKey(name: "sent_on") required this.sentOn,
+      @JsonKey(name: "is_sent") this.isSent = true});
 
   factory _$_ChatMessage.fromJson(Map<String, dynamic> json) =>
       _$$_ChatMessageFromJson(json);
 
   @override
-  String? id;
+  int? id;
   @override
   String message;
   @override
+  @JsonKey(name: "discussion_id")
+  int discussionId;
+  @override
+  @JsonKey(name: "sent_on")
   DateTime sentOn;
   @override
-  @JsonKey()
+  @JsonKey(name: "is_sent")
   bool isSent;
 
   @override
   String toString() {
-    return 'ChatMessage(id: $id, message: $message, sentOn: $sentOn, isSent: $isSent)';
+    return 'ChatMessage(id: $id, message: $message, discussionId: $discussionId, sentOn: $sentOn, isSent: $isSent)';
   }
 
   @JsonKey(ignore: true)
@@ -174,25 +207,35 @@ class _$_ChatMessage implements _ChatMessage {
 
 abstract class _ChatMessage implements ChatMessage {
   factory _ChatMessage(
-      {String? id,
+      {int? id,
       required String message,
-      required DateTime sentOn,
-      bool isSent}) = _$_ChatMessage;
+      @JsonKey(name: "discussion_id") required int discussionId,
+      @JsonKey(name: "sent_on") required DateTime sentOn,
+      @JsonKey(name: "is_sent") bool isSent}) = _$_ChatMessage;
 
   factory _ChatMessage.fromJson(Map<String, dynamic> json) =
       _$_ChatMessage.fromJson;
 
   @override
-  String? get id;
-  set id(String? value);
+  int? get id;
+  set id(int? value);
   @override
   String get message;
   set message(String value);
   @override
+  @JsonKey(name: "discussion_id")
+  int get discussionId;
+  @JsonKey(name: "discussion_id")
+  set discussionId(int value);
+  @override
+  @JsonKey(name: "sent_on")
   DateTime get sentOn;
+  @JsonKey(name: "sent_on")
   set sentOn(DateTime value);
   @override
+  @JsonKey(name: "is_sent")
   bool get isSent;
+  @JsonKey(name: "is_sent")
   set isSent(bool value);
   @override
   @JsonKey(ignore: true)
