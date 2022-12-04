@@ -1,7 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:sjobs/models/entities/job_offer.dart';
+import 'package:sjobs/models/entities/job_offer/job_offer.dart';
 import 'package:sjobs/theme/light_theme_colors.dart';
 
 class OfferDescriptionView extends HookWidget {
@@ -124,9 +124,9 @@ class OfferDescriptionView extends HookWidget {
                       ),
                     ),
                   ),
-                  const Text(
-                    "You'll have to take care of a 6 years old child.\nIt's very simple you'll just be playing with him for 5 hours.\nYou'll just be feeding our child and play with him.",
-                    style: TextStyle(fontSize: 16),
+                  Text(
+                    offer.description,
+                    style: const TextStyle(fontSize: 16),
                   ),
 
                   //? Requirements
@@ -140,42 +140,17 @@ class OfferDescriptionView extends HookWidget {
                       ),
                     ),
                   ),
-                  const ListTile(
-                    leading: Icon(
-                      Icons.circle,
-                    ),
-                    title: Text(
-                      "Be fluent in English",
-                      style: TextStyle(fontSize: 16),
-                    ),
-                  ),
-                  const ListTile(
-                    leading: Icon(
-                      Icons.circle,
-                    ),
-                    title: Text(
-                      "Have manners with children",
-                      style: TextStyle(fontSize: 16),
-                    ),
-                  ),
-                  const ListTile(
-                    leading: Icon(
-                      Icons.circle,
-                    ),
-                    title: Text(
-                      "At least be 18 years old",
-                      style: TextStyle(fontSize: 16),
-                    ),
-                  ),
-                  const ListTile(
-                    leading: Icon(
-                      Icons.circle,
-                    ),
-                    title: Text(
-                      "Very polite",
-                      style: TextStyle(fontSize: 16),
-                    ),
-                  ),
+                  ...offer.requirements
+                      .map((requirement) => ListTile(
+                            leading: const Icon(
+                              Icons.circle,
+                            ),
+                            title: Text(
+                              requirement,
+                              style: const TextStyle(fontSize: 16),
+                            ),
+                          ))
+                      .toList()
                 ],
               ),
             ),
@@ -187,8 +162,8 @@ class OfferDescriptionView extends HookWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   Column(
-                    children: const [
-                      Text(
+                    children: [
+                      const Text(
                         "Salary",
                         textAlign: TextAlign.start,
                         style: TextStyle(
@@ -197,9 +172,9 @@ class OfferDescriptionView extends HookWidget {
                         ),
                       ),
                       Text(
-                        "120\$/Mo",
+                        "${offer.salary}\$/Mo",
                         textAlign: TextAlign.start,
-                        style: TextStyle(
+                        style: const TextStyle(
                           color: LightThemeColors.secondary,
                           fontWeight: FontWeight.bold,
                           fontSize: 16,

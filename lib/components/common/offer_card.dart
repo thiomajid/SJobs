@@ -1,6 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:sjobs/models/entities/job_offer.dart';
+import 'package:sjobs/models/entities/job_offer/job_offer.dart';
 import 'package:sjobs/theme/light_theme_colors.dart';
 
 class OfferCard extends StatelessWidget {
