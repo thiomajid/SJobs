@@ -8,16 +8,18 @@ part of 'chat_message.dart';
 
 _$_ChatMessage _$$_ChatMessageFromJson(Map<String, dynamic> json) =>
     _$_ChatMessage(
-      id: json['id'] as String?,
+      id: json['id'] as int?,
       message: json['message'] as String,
-      sentOn: DateTime.parse(json['sentOn'] as String),
-      isSent: json['isSent'] as bool? ?? true,
+      discussionId: json['discussion_id'] as int,
+      sentOn: DateTime.parse(json['sent_on'] as String),
+      isSent: json['is_sent'] as bool? ?? true,
     );
 
 Map<String, dynamic> _$$_ChatMessageToJson(_$_ChatMessage instance) =>
     <String, dynamic>{
       'id': instance.id,
       'message': instance.message,
-      'sentOn': instance.sentOn.toIso8601String(),
-      'isSent': instance.isSent,
+      'discussion_id': instance.discussionId,
+      'sent_on': instance.sentOn.toIso8601String(),
+      'is_sent': instance.isSent,
     };

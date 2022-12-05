@@ -20,22 +20,30 @@ JobOffer _$JobOfferFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$JobOffer {
-  String? get id => throw _privateConstructorUsedError;
-  set id(String? value) => throw _privateConstructorUsedError;
+  int? get id => throw _privateConstructorUsedError;
+  set id(int? value) => throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
   set title(String value) => throw _privateConstructorUsedError;
   String get description => throw _privateConstructorUsedError;
   set description(String value) => throw _privateConstructorUsedError;
+  @JsonKey(name: "employer_id")
+  int get employerId => throw _privateConstructorUsedError;
+  @JsonKey(name: "employer_id")
+  set employerId(int value) => throw _privateConstructorUsedError;
+  @JsonKey(name: "posted_on")
   DateTime get postedOn => throw _privateConstructorUsedError;
+  @JsonKey(name: "posted_on")
   set postedOn(DateTime value) => throw _privateConstructorUsedError;
   double get salary => throw _privateConstructorUsedError;
   set salary(double value) => throw _privateConstructorUsedError;
-  List<String> get requirements => throw _privateConstructorUsedError;
-  set requirements(List<String> value) => throw _privateConstructorUsedError;
   String get location => throw _privateConstructorUsedError;
   set location(String value) => throw _privateConstructorUsedError;
+  @JsonKey(name: "job_type")
   String get jobType => throw _privateConstructorUsedError;
+  @JsonKey(name: "job_type")
   set jobType(String value) => throw _privateConstructorUsedError;
+  List<String>? get requirements => throw _privateConstructorUsedError;
+  set requirements(List<String>? value) => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -49,14 +57,15 @@ abstract class $JobOfferCopyWith<$Res> {
       _$JobOfferCopyWithImpl<$Res, JobOffer>;
   @useResult
   $Res call(
-      {String? id,
+      {int? id,
       String title,
       String description,
-      DateTime postedOn,
+      @JsonKey(name: "employer_id") int employerId,
+      @JsonKey(name: "posted_on") DateTime postedOn,
       double salary,
-      List<String> requirements,
       String location,
-      String jobType});
+      @JsonKey(name: "job_type") String jobType,
+      List<String>? requirements});
 }
 
 /// @nodoc
@@ -75,17 +84,18 @@ class _$JobOfferCopyWithImpl<$Res, $Val extends JobOffer>
     Object? id = freezed,
     Object? title = null,
     Object? description = null,
+    Object? employerId = null,
     Object? postedOn = null,
     Object? salary = null,
-    Object? requirements = null,
     Object? location = null,
     Object? jobType = null,
+    Object? requirements = freezed,
   }) {
     return _then(_value.copyWith(
       id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as int?,
       title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
@@ -94,6 +104,10 @@ class _$JobOfferCopyWithImpl<$Res, $Val extends JobOffer>
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String,
+      employerId: null == employerId
+          ? _value.employerId
+          : employerId // ignore: cast_nullable_to_non_nullable
+              as int,
       postedOn: null == postedOn
           ? _value.postedOn
           : postedOn // ignore: cast_nullable_to_non_nullable
@@ -102,10 +116,6 @@ class _$JobOfferCopyWithImpl<$Res, $Val extends JobOffer>
           ? _value.salary
           : salary // ignore: cast_nullable_to_non_nullable
               as double,
-      requirements: null == requirements
-          ? _value.requirements
-          : requirements // ignore: cast_nullable_to_non_nullable
-              as List<String>,
       location: null == location
           ? _value.location
           : location // ignore: cast_nullable_to_non_nullable
@@ -114,6 +124,10 @@ class _$JobOfferCopyWithImpl<$Res, $Val extends JobOffer>
           ? _value.jobType
           : jobType // ignore: cast_nullable_to_non_nullable
               as String,
+      requirements: freezed == requirements
+          ? _value.requirements
+          : requirements // ignore: cast_nullable_to_non_nullable
+              as List<String>?,
     ) as $Val);
   }
 }
@@ -126,14 +140,15 @@ abstract class _$$_JobOfferCopyWith<$Res> implements $JobOfferCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {String? id,
+      {int? id,
       String title,
       String description,
-      DateTime postedOn,
+      @JsonKey(name: "employer_id") int employerId,
+      @JsonKey(name: "posted_on") DateTime postedOn,
       double salary,
-      List<String> requirements,
       String location,
-      String jobType});
+      @JsonKey(name: "job_type") String jobType,
+      List<String>? requirements});
 }
 
 /// @nodoc
@@ -150,17 +165,18 @@ class __$$_JobOfferCopyWithImpl<$Res>
     Object? id = freezed,
     Object? title = null,
     Object? description = null,
+    Object? employerId = null,
     Object? postedOn = null,
     Object? salary = null,
-    Object? requirements = null,
     Object? location = null,
     Object? jobType = null,
+    Object? requirements = freezed,
   }) {
     return _then(_$_JobOffer(
       id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as int?,
       title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
@@ -169,6 +185,10 @@ class __$$_JobOfferCopyWithImpl<$Res>
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String,
+      employerId: null == employerId
+          ? _value.employerId
+          : employerId // ignore: cast_nullable_to_non_nullable
+              as int,
       postedOn: null == postedOn
           ? _value.postedOn
           : postedOn // ignore: cast_nullable_to_non_nullable
@@ -177,10 +197,6 @@ class __$$_JobOfferCopyWithImpl<$Res>
           ? _value.salary
           : salary // ignore: cast_nullable_to_non_nullable
               as double,
-      requirements: null == requirements
-          ? _value.requirements
-          : requirements // ignore: cast_nullable_to_non_nullable
-              as List<String>,
       location: null == location
           ? _value.location
           : location // ignore: cast_nullable_to_non_nullable
@@ -189,6 +205,10 @@ class __$$_JobOfferCopyWithImpl<$Res>
           ? _value.jobType
           : jobType // ignore: cast_nullable_to_non_nullable
               as String,
+      requirements: freezed == requirements
+          ? _value.requirements
+          : requirements // ignore: cast_nullable_to_non_nullable
+              as List<String>?,
     ));
   }
 }
@@ -200,35 +220,41 @@ class _$_JobOffer implements _JobOffer {
       {this.id,
       required this.title,
       required this.description,
-      required this.postedOn,
+      @JsonKey(name: "employer_id") required this.employerId,
+      @JsonKey(name: "posted_on") required this.postedOn,
       required this.salary,
-      required this.requirements,
       required this.location,
-      required this.jobType});
+      @JsonKey(name: "job_type") required this.jobType,
+      this.requirements});
 
   factory _$_JobOffer.fromJson(Map<String, dynamic> json) =>
       _$$_JobOfferFromJson(json);
 
   @override
-  String? id;
+  int? id;
   @override
   String title;
   @override
   String description;
   @override
+  @JsonKey(name: "employer_id")
+  int employerId;
+  @override
+  @JsonKey(name: "posted_on")
   DateTime postedOn;
   @override
   double salary;
   @override
-  List<String> requirements;
-  @override
   String location;
   @override
+  @JsonKey(name: "job_type")
   String jobType;
+  @override
+  List<String>? requirements;
 
   @override
   String toString() {
-    return 'JobOffer(id: $id, title: $title, description: $description, postedOn: $postedOn, salary: $salary, requirements: $requirements, location: $location, jobType: $jobType)';
+    return 'JobOffer(id: $id, title: $title, description: $description, employerId: $employerId, postedOn: $postedOn, salary: $salary, location: $location, jobType: $jobType, requirements: $requirements)';
   }
 
   @JsonKey(ignore: true)
@@ -247,20 +273,21 @@ class _$_JobOffer implements _JobOffer {
 
 abstract class _JobOffer implements JobOffer {
   factory _JobOffer(
-      {String? id,
+      {int? id,
       required String title,
       required String description,
-      required DateTime postedOn,
+      @JsonKey(name: "employer_id") required int employerId,
+      @JsonKey(name: "posted_on") required DateTime postedOn,
       required double salary,
-      required List<String> requirements,
       required String location,
-      required String jobType}) = _$_JobOffer;
+      @JsonKey(name: "job_type") required String jobType,
+      List<String>? requirements}) = _$_JobOffer;
 
   factory _JobOffer.fromJson(Map<String, dynamic> json) = _$_JobOffer.fromJson;
 
   @override
-  String? get id;
-  set id(String? value);
+  int? get id;
+  set id(int? value);
   @override
   String get title;
   set title(String value);
@@ -268,20 +295,29 @@ abstract class _JobOffer implements JobOffer {
   String get description;
   set description(String value);
   @override
+  @JsonKey(name: "employer_id")
+  int get employerId;
+  @JsonKey(name: "employer_id")
+  set employerId(int value);
+  @override
+  @JsonKey(name: "posted_on")
   DateTime get postedOn;
+  @JsonKey(name: "posted_on")
   set postedOn(DateTime value);
   @override
   double get salary;
   set salary(double value);
   @override
-  List<String> get requirements;
-  set requirements(List<String> value);
-  @override
   String get location;
   set location(String value);
   @override
+  @JsonKey(name: "job_type")
   String get jobType;
+  @JsonKey(name: "job_type")
   set jobType(String value);
+  @override
+  List<String>? get requirements;
+  set requirements(List<String>? value);
   @override
   @JsonKey(ignore: true)
   _$$_JobOfferCopyWith<_$_JobOffer> get copyWith =>
